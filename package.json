@@ -1,0 +1,16 @@
+{
+  "name": "devaiplanet",
+  "private": true,
+  "workspaces": ["apps/*"],
+  "scripts": {
+    "dev": "concurrently \"npm run dev -w @devaiplanet/api\" \"npm run dev -w @devaiplanet/web\"",
+    "build": "npm run build -w @devaiplanet/api && npm run build -w @devaiplanet/web",
+    "db:generate": "npm run prisma:generate -w @devaiplanet/api",
+    "db:push": "npm run prisma:push -w @devaiplanet/api",
+    "db:migrate": "npm run prisma:migrate -w @devaiplanet/api",
+    "lint": "npm run lint -w @devaiplanet/api && npm run lint -w @devaiplanet/web"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
